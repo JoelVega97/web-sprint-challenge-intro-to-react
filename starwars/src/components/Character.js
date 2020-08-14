@@ -1,15 +1,14 @@
 // Write your Character component here
 
-import React, { useState } from 'react'
+import React from 'react'
+import CharacterCard from './CharacterCard.js'
 
-export default function CharacterMaker({starters, legends}){
-    const [starterName ,setStarterName] = useState()
-
-
-    return (
+export default function Character({data}){
+    return(
         <div>
-        <h1 className="Header">Pokemon</h1>
-        <p></p>
+            {data.map(el => {
+                return <CharacterCard name = {el.name}  gender = {el.gender} height = {el.height} mass = {el.mass} birthYR = {el.birth_year} skin = {el.skin_color} eyes = {el.eye_color} />
+            })}
         </div>
     )
 }
